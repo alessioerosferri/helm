@@ -226,8 +226,8 @@ async function deploy(helm) {
     "upgrade",
     release,
     chart,
-    "--install",
     "--dependency-update",
+    "--install",
     "--wait",
     `--namespace=${namespace}`,
   ];
