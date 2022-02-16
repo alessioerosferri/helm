@@ -178,7 +178,6 @@ async function addRepo(helm) {
 
     await exec.exec(helm, args);
     await exec.exec(helm, ["repo", "update"])
-    await exec.exec(helm, ["dependency", "update"])
   }
 
   return Promise.resolve()
@@ -228,6 +227,7 @@ async function deploy(helm) {
     release,
     chart,
     "--install",
+    "--dependency-update",
     "--wait",
     `--namespace=${namespace}`,
   ];
